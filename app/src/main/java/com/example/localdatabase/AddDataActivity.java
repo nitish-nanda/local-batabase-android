@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.localdatabase.models.WordModel;
 import com.example.localdatabase.room.WordRepository;
@@ -21,6 +22,9 @@ public class AddDataActivity extends AppCompatActivity {
 
     @BindView(R.id.et_string)
     public TextInputEditText editText;
+
+    @BindView(R.id.btn_save)
+    public Button button;
 
     private WordRepository repository;
 
@@ -47,9 +51,14 @@ public class AddDataActivity extends AppCompatActivity {
         wordModel = (WordModel) getIntent().getSerializableExtra("word");
         if (wordModel != null) {
             editText.setText(wordModel.getWord());
+            editText.setSelection(editText.getText().toString().length());
+            button.setText("Update");
+            //for set top toolbar
             setTitle("Update Data");
-        } else
+        } else {
+            button.setText("Add");
             setTitle("Add Data");
+        }
     }
 
     public void onClickSave(View view) {
@@ -57,11 +66,13 @@ public class AddDataActivity extends AppCompatActivity {
         if (string.isEmpty()) {
             return;
         }
-        WordModel model = new WordModel(string.trim());
-        if (wordModel == null)
+        if (wordModel == null) {
+            WordModel model = new WordModel(string.trim());
             repository.insert(model);
-        else
-            repository.update(model);
+        } else {
+            wordModel.setWord(string.trim());
+            repository.update(wordModel);
+        }
         finish();
     }
 }
