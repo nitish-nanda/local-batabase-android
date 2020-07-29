@@ -1,6 +1,7 @@
 # local-batabase-android
-
-Example of local database using new room Persistence library (simply say SQLite)
+Example of the local database using the new room Persistence library (simply say SQLite).
+In this demo I will perform all the basic DB operations like ADD, DELETE, UPDATE.
+Also, I use ExecutorService instead of Async Task because it gets depreciated in android API level 30.  
 
 # for detail information
 
