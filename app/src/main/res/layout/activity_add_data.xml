@@ -58,7 +58,7 @@
             android:gravity="start"
             android:hint="Enter Data"
             android:imeOptions="actionDone"
-            android:inputType="textMultiLine"
+            android:inputType="textMultiLine|textCapSentences"
             android:minHeight="55dp"
             android:padding="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
