@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.localdatabase.models.WordModel;
 import com.example.localdatabase.room.WordRepository;
@@ -19,6 +20,9 @@ import butterknife.ButterKnife;
 import butterknife.internal.Constants;
 
 public class AddDataActivity extends AppCompatActivity {
+
+    @BindView(R.id.tv_heading)
+    public TextView tvHeading;
 
     @BindView(R.id.et_string)
     public TextInputEditText editText;
@@ -54,11 +58,15 @@ public class AddDataActivity extends AppCompatActivity {
             editText.setSelection(editText.getText().toString().length());
             button.setText("Update");
             //for set top toolbar
-            setTitle("Update Data");
+            tvHeading.setText("Update Data");
         } else {
             button.setText("Add");
-            setTitle("Add Data");
+            tvHeading.setText("Add Data");
         }
+    }
+
+    public void onClickBack(View view) {
+        onBackPressed();
     }
 
     public void onClickSave(View view) {
@@ -75,4 +83,5 @@ public class AddDataActivity extends AppCompatActivity {
         }
         finish();
     }
+
 }
