@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 
 public class WordRepository {
 
-    private WordDao mWordDao;
+    private final WordDao mWordDao;
 
     private static final int NO_OF_THREADS = 4;
 

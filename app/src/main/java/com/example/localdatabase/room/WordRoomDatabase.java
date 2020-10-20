@@ -11,7 +11,7 @@ import com.example.localdatabase.models.WordModel;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {WordModel.class}, version = 1, exportSchema = true)
+@Database(entities = {WordModel.class}, version = 1)
 public abstract class WordRoomDatabase extends RoomDatabase {
 
     public abstract WordDao wordDao();
